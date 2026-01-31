@@ -11,6 +11,7 @@ import net.minestom.server.instance.block.Block;
 import org.sirox.command.GamemodeCommand;
 import org.sirox.event.AsyncPlayerEvent;
 import org.sirox.event.BlockBreakEvent;
+import org.sirox.event.CopyBlockEvent;
 import org.sirox.event.PickupEvent;
 
 public class Main {
@@ -39,6 +40,7 @@ public class Main {
         new AsyncPlayerEvent(eventHandler, instance);
         new BlockBreakEvent(eventHandler);
         new PickupEvent(eventHandler);
+        new CopyBlockEvent(eventHandler);
     }
 
     static void generateWorld(InstanceContainer instance) {
