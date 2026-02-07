@@ -17,7 +17,7 @@ public class GamemodeCommand extends Command {
         setDefaultExecutor((sender, context) -> {
            final Player player = (Player) sender;
 
-           Component message = mm.deserialize("<#AAAAAA>[<#F03C3C>✘<#AAAAAA>]");
+           Component message = mm.deserialize("<#AAAAAA>[<#F03C3C>✘<#AAAAAA>] Musisz podać tryb gry");
            player.sendMessage(message);
         });
 
@@ -26,6 +26,8 @@ public class GamemodeCommand extends Command {
 
         addSyntax((sender, context) -> {
                 final Player player = (Player) sender;
+
+                if (player.getPermissionLevel() < 4) return;
 
                 String gamemode = context.get(gamemodeArgument);
                 Component message = mm.deserialize("<#AAAAAA>[<#5DF083>✔<#AAAAAA>] Tryb gry ustawiony na: " + gamemode);
@@ -42,6 +44,9 @@ public class GamemodeCommand extends Command {
 
         addSyntax((sender, context) -> {
             final Player player = context.get(playerArgument).findFirstPlayer(sender);
+            final Player senderPlayer = (Player) sender;
+
+            if (senderPlayer.getPermissionLevel() < 4) return;
 
             if (player != null) {
                 

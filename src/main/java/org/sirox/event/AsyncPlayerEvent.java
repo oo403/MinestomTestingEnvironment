@@ -13,7 +13,7 @@ public class AsyncPlayerEvent {
         eventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
             event.setSpawningInstance(instance);
-            player.setRespawnPoint(new Pos(0, 41, 0));
+            player.setRespawnPoint(new Pos(0, 150, 0));
         });
     }
 
